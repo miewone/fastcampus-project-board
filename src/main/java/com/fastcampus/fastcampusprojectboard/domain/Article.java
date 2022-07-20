@@ -23,9 +23,9 @@ import java.util.Set;
         @Index(columnList = "createdAt"),
         @Index(columnList = "createdBy")
 })
-@EntityListeners(AuditingEntityListener.class)
+
 @Entity
-public class Article {
+public class Article extends AuditingFields{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY) // 자동 increment auto 사용하면 안됨 mysql는 identity 방식으로 되기 때문에
@@ -45,10 +45,8 @@ public class Article {
     @OneToMany(mappedBy = "article",cascade = CascadeType.ALL)
     private final Set<ArticleComment> articleComments = new LinkedHashSet<>();
 
-    @CreatedDate @Column(nullable=false) private LocalDateTime createdAt; // 생성일시
-    @CreatedBy @Column(nullable=false,length=100) private String createdBy;    // 생성자
-    @LastModifiedDate @Column(nullable=false) private LocalDateTime modifiedAt; // 수정일시
-    @LastModifiedBy @Column(nullable=false,length=100) private String modifiedBy;  // 수정자
+
+
 
     // JPA Entity는 하이버넽이트 구현체를 사용할때 기본 생성자를 가지고 있어야한다.
     protected Article(){}
