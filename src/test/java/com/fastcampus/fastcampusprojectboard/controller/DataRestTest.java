@@ -1,5 +1,6 @@
 package com.fastcampus.fastcampusprojectboard.controller;
 
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,6 +17,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 //@WebMvcTest
+@Disabled("Spring Data REST 통합테스트는 불필요하므로 제외시킴")
 @Transactional
 @DisplayName("Data Rest - API 테스트")
 @AutoConfigureMockMvc // SpringBootTest만으로는 MovcMvc 테스트를 감지할 수 없어 AutoconfigureMockmvc Annotation을 달아줘서 감지하게함.
