@@ -46,7 +46,7 @@ class ArticleControllerTest {
         // When & Then
         mvc.perform(get("/articles/1"))
                 .andExpect(status().isOk()) // 상태 반환 값 검사
-                .andExpect(content().contentType(MediaType.TEXT_HTML)) // 미디어 타입 검사
+                .andExpect(content().contentTypeCompatibleWith(MediaType.TEXT_HTML)) // 미디어 타입 검사
                 .andExpect(view().name("articles/detail")) // view name 검사
                 .andExpect(model().attributeExists("articles")) // modelAttribute 맵에 articles라는 키가 있는지 검사
                 .andExpect(model().attributeExists("articleComments"));
@@ -62,7 +62,7 @@ class ArticleControllerTest {
         mvc.perform(get("/articles/search"))
                 .andExpect(status().isOk()) // 상태 반환 값 검사
                 .andExpect(view().name("articles/search")) // view name 검사
-                .andExpect(content().contentType(MediaType.TEXT_HTML)); // 미디어 타입 검사
+                .andExpect(content().contentTypeCompatibleWith(MediaType.TEXT_HTML)); // 미디어 타입 검사
     }
 
     @Disabled("구현 중")
@@ -75,6 +75,6 @@ class ArticleControllerTest {
         mvc.perform(get("/articles/search-hashtag"))
                 .andExpect(status().isOk()) // 상태 반환 값 검사
                 .andExpect(view().name("articles/search-hashtags")) // view name 검사
-                .andExpect(content().contentType(MediaType.TEXT_HTML)); // 미디어 타입 검사
+                .andExpect(content().contentTypeCompatibleWith(MediaType.TEXT_HTML)); // 미디어 타입 검사
     }
 }
