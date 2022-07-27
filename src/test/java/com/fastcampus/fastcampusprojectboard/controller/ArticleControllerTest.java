@@ -37,7 +37,7 @@ class ArticleControllerTest {
                 .andExpect(model().attributeExists("articles")); // modelAttribute 맵에 articles라는 키가 있는지 검사
     }
 
-    @Disabled("구현 중")
+//    @Disabled("구현 중")
     @DisplayName("[view][GET] 게시글 상세 페이지 - 정상 호출")
     @Test
     public void givenNothing_whenRequestingArticleView_thenReturnArticleView() throws Exception {
@@ -48,7 +48,7 @@ class ArticleControllerTest {
                 .andExpect(status().isOk()) // 상태 반환 값 검사
                 .andExpect(content().contentTypeCompatibleWith(MediaType.TEXT_HTML)) // 미디어 타입 검사
                 .andExpect(view().name("articles/detail")) // view name 검사
-                .andExpect(model().attributeExists("articles")) // modelAttribute 맵에 articles라는 키가 있는지 검사
+                .andExpect(model().attributeExists("article")) // modelAttribute 맵에 articles라는 키가 있는지 검사
                 .andExpect(model().attributeExists("articleComments"));
     }
 
